@@ -1,6 +1,8 @@
 CC = accel-gcc
 CFLAGS = -fopenmp
-EXTRAE_LIB = -Wl,-L/work1/amurena/extraeMPPA/ins2/lib
+EXTRAE_LIB = 
+EXTRAE_MPI2PRV = 
+
 WRAP_SYMBOLS = -Wl,--wrap=GOMP_parallel
 LD_FLAGS = $(EXTRAE_LIB) -l:libomptrace.a $(WRAP_SYMBOLS) -Wl,--allow-multiple-definition
 TARGET = example
@@ -14,7 +16,7 @@ $(TARGET): $(SRC)
 
 run: $(TARGET)
 	./$(TARGET)
-	./generateTrace.sh $(TARGET)
+	./generateTrace.sh $(TARGET) $(EXTRAE_MPI2PRV)
 
 
 clean:

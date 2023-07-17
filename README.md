@@ -1,6 +1,6 @@
 # Extrae example
 
-Make sure to set correct EXTRAE_LIB path inside the Makefile and Kalray tools are in PATH.
+Make sure to set correct EXTRAE_LIB and EXTRAE_MPI2PRV paths inside the Makefile and Kalray tools are in PATH.
 
 To compile
 
