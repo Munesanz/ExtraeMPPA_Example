@@ -3,8 +3,8 @@ CFLAGS = -fopenmp
 EXTRAE_LIB = 
 EXTRAE_MPI2PRV = 
 
-WRAP_SYMBOLS = -Wl,--wrap=GOMP_parallel
-LD_FLAGS = $(EXTRAE_LIB) -l:libomptrace.a $(WRAP_SYMBOLS) -Wl,--allow-multiple-definition
+WRAP_SYMBOLS = -Wl,--wrap=GOMP_parallel -Wl,--wrap=GOMP_teams4
+LD_FLAGS = -Wl,-L$(EXTRAE_LIB) -l:libomptrace.a $(WRAP_SYMBOLS) -Wl,--allow-multiple-definition
 TARGET = example
 SRC = example.c
 

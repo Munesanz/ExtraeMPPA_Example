@@ -9,4 +9,7 @@ fi
 PROGRAM_NAME="$1"
 MPI2PRV_PATH="$2"
 EXTRAE_PROGRAM_NAME="$PROGRAM_NAME" EXTRAE_FINAL_DIR=. kvx-mppa -- "$MPI2PRV_PATH" -f "$PROGRAM_NAME.mpits" -o "$PROGRAM_NAME.prv"
-rm "$PROGRAM_NAME.sym"
+# Check if "PROGRAM_NAME.sym" exists before attempting to remove it
+if [ -f "$PROGRAM_NAME.sym" ]; then
+  rm "$PROGRAM_NAME.sym"
+fi
